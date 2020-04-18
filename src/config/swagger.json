@@ -1,0 +1,99 @@
+{
+    "swagger": "2.0",
+    "info": {
+      "version": "1.0.0",
+      "title": "Next Node Js App",
+      "description": "",
+      
+      "license": {
+        "name": "MIT",
+        "url": "https://opensource.org/licenses/MIT"
+      }
+    },
+    "host": "localhost:3500",
+    "basePath": "/api",
+    "tags": [
+      {
+        "name": "Customers",
+        "description": "API for Customers in the system"
+      }
+    ],
+    "schemes": [
+      "http"
+    ],
+    "consumes": [
+      "application/json"
+    ],
+    "produces": [
+      "application/json"
+    ],
+    "paths": {
+      "/CreateCustomer": {
+        "post": {
+          "tags": [
+            "Customers"
+          ],
+          "description": "Create new customer in system",
+          "parameters": [
+            {
+              "name": "customer",
+              "in": "body",
+              "description": "Customer that we want to create",
+              "schema": {
+                "$ref": "#/definitions/Customer"
+              }
+            }
+          ],
+          "produces": [
+            "application/json"
+          ],
+          "responses": {
+            "200": {
+              "description": "New customer is created",
+              "schema": {
+                "$ref": "#/definitions/Customer"
+              }
+            }
+          }
+        }
+      },
+      "/GetCustomers": {
+        "get": {
+          "tags": [
+            "GetCustomers"
+          ],
+          "summary": "Get all Customers in system",
+          "responses": {
+            "200": {
+              "description": "OK",
+              "schema": {
+                "$ref": "#/definitions/Customers"
+              }
+            }
+          }
+        }
+      }
+      
+    },
+    "definitions": {
+      "Customer": {
+        "required": [
+          "email",
+          "name"
+        ],
+        "properties": {
+          "name": {
+            "type": "string",
+            "uniqueItems": true
+          },
+          "email": {
+            "type": "string"
+          }
+        }
+      },
+      "Customers": {
+        "type": "array",
+        "$ref": "#/definitions/Customer"
+      }
+    }
+  }
