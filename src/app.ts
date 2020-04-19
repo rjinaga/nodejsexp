@@ -41,7 +41,9 @@ class App {
 
 
     /** Configure Swagger for API Documentation and Testing */
-    this.configureSwagger(router);
+    if (process.env.APP_ENV == 'development') {
+      this.configureSwagger(router);
+    }
     
   }
 
@@ -61,11 +63,10 @@ class App {
   }
 
   private configureSwagger(router: core.Router): void {
-    
     this.express.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
     this.express.use('/api', router);
   }
 
 }
 
-export default new App();
+export default App;
