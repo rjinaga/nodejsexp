@@ -8,7 +8,7 @@
   "scripts": {
     "test": "mocha -r ts-node/register test/**/*-test.ts",
     "coverage": "nyc --reporter=html --reporter=text mocha -r ts-node/register test/**/*-test.ts",
-    "build": "tsc",
+    "build": "tsc --p tsconfig.prod.json",
     "start": "tsc && ts-node src/index.ts",
     "lint": "eslint . --ext .ts"
   },
