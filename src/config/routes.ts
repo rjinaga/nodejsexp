@@ -1,15 +1,18 @@
-import * as customerApi from '@api/customer-api';
-import * as homeApi from '@api/home-api';
+import * as customerHandler from '@api/customer-handler';
+import * as homeHandler from '@api/home-handler';
 
 export enum Method {GET, POST}
 
+//# Learn Routing: https://expressjs.com/en/guide/routing.html
+//# Learn Serving static files in Express -> https://expressjs.com/en/starter/static-files.html
+
 const routes = [
     /** Method, Path, Handler */
-    [Method.GET, '/', homeApi.home],
-    [Method.GET, '/api/getCustomers', customerApi.getCustomers],
-    [Method.GET, '/api/getStateList', customerApi.getStateList],
-    [Method.POST, '/api/createCustomer', customerApi.createCustomer],
-    [Method.POST, '/api/updateCustomer', customerApi.updateCustomer]
+    [Method.GET, '/', homeHandler.home],
+    [Method.GET, '/api/getCustomers', customerHandler.getCustomers],
+    [Method.GET, '/api/getStateList', customerHandler.getStateList],
+    [Method.POST, '/api/createCustomer', customerHandler.createCustomer],
+    [Method.POST, '/api/updateCustomer', customerHandler.updateCustomer]
 ];
 
 export default routes;
