@@ -1,13 +1,13 @@
 import validate from 'validate.js';
 import Customer from '../entities/customer';
 import CustomerRepository from '../repositories/customer-repository';
-import ICustomerRepository from '../abstracts/abstract-customer-repository';
+import AbstractCustomerRepository from '../abstracts/abstract-customer-repository';
 
 class CustomerService {
 
-    private customerRepo!: ICustomerRepository;
+    private customerRepo!: AbstractCustomerRepository;
 
-    constructor(customerRepo?: ICustomerRepository) {
+    constructor(customerRepo?: AbstractCustomerRepository) {
         this.customerRepo = customerRepo ?? new CustomerRepository();
     }
 
